@@ -34,14 +34,28 @@ print(Min)
 
 #Count of men 
 Men=  Heart_Disease_Symptoms[Heart_Disease_Symptoms['Sex'] == 1]
-print('These are all of the smen')
+print('These are all of the men')
 print(Men)
 #Count of Women 
 Women=  Heart_Disease_Symptoms[Heart_Disease_Symptoms['Sex'] == 0]
-print('These are all of the smen')
+print('These are all of the Women')
 print(Women)
 
+#Average, Max, Min age of women to get heart disease 
+Age_Women = Women.iloc[:,0]
+Average_Women=Age_Women.mean()
+Max_Women =Age_Women.max()
+Min_Women = Age_Women.min()
+print('WOMEN AGES (Avg, Max, Min):  ', Average_Women, Max_Women, Min_Women)
+#Average, Max, Min age of Men to get heart disease 
+Age_Men = Men.iloc[:,0]
+Average_Men=Age_Men.mean()
+Max_Men =Age_Men.max()
+Min_Men = Age_Men.min()
+print('MEN AGES (Avg, Max, Min): ', Average_Men, Max_Men, Min_Men)
+
 # Number of people that have chest pain 1
+
 # Number of people that have chest pain 2
 # Number of people that have chest pain 3
 # Number of people that have chest pain 4
