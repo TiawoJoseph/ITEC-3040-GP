@@ -55,15 +55,41 @@ Min_Men = Age_Men.min()
 print('MEN AGES (Avg, Max, Min): ', Average_Men, Max_Men, Min_Men)
 
 # Number of people that have chest pain 1
-
+Chest_Pain_One = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Chest Pain Type'] == 1]
+print("These are all individuals with Chest Pain 1")
+print(Chest_Pain_One)
+total_rows = Chest_Pain_One.shape[0]
+print('total number of people: ', total_rows)
 # Number of people that have chest pain 2
+Chest_Pain_Two = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Chest Pain Type'] == 2]
+print("These are all individuals with Chest Pain 2")
+print(Chest_Pain_Two)
+total_rows = Chest_Pain_Two.shape[0]
+print('total number of people: ', total_rows)
 # Number of people that have chest pain 3
+Chest_Pain_Three = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Chest Pain Type'] == 3]
+print("These are all individuals with Chest Pain 3")
+print(Chest_Pain_Three)
+total_rows = Chest_Pain_Three.shape[0]
+print('total number of people: ', total_rows)
 # Number of people that have chest pain 4
+Chest_Pain_Four = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Chest Pain Type'] == 4]
+print("These are all individuals with Chest Pain 4")
+total_rows = Chest_Pain_Four.shape[0]
+print(Chest_Pain_Four)
+print('total number of people: ', total_rows)
 
 
+Blood_Pressure_HD = Heart_Disease_Symptoms.iloc[:,3]
+print(Blood_Pressure_HD)
 #Max BP
+Max_BP = Blood_Pressure_HD.max()
 #Min BP 
+Min_BP = Blood_Pressure_HD.min()
 #Average BP
+AVG_BP = Blood_Pressure_HD.mean()
+
+print('Max BP: ', Max_BP, 'Min Bp: ', Min_BP, 'AVG BP: ', AVG_BP)
 
 #Fasting BP MAX
 #FASTING BP MIN 
