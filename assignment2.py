@@ -88,14 +88,37 @@ Max_BP = Blood_Pressure_HD.max()
 Min_BP = Blood_Pressure_HD.min()
 #Average BP
 AVG_BP = Blood_Pressure_HD.mean()
-
 print('Max BP: ', Max_BP, 'Min Bp: ', Min_BP, 'AVG BP: ', AVG_BP)
 
-#Fasting BP MAX
-#FASTING BP MIN 
-#FASTING BP AVG
+#Fasting BP 0 [6]
+BP_LessThan = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Fasting BP']==0]
+print(BP_LessThan)
+#FASTING BP  1 count
+
+BP = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Fasting BP']==1]
+BP_Total = BP.shape[0]
+print(BP_Total)
 
 #MIN [MIN HEART RATE]
+Min_HeartRate = Heart_Disease_Symptoms.iloc[:,7]
+Minimum_HR =Min_HeartRate.min()
+print('Thia is the min heart rate: ', Minimum_HR)
 #MAX [MIN HEART RATE]
-
+Max_HeartRate = Heart_Disease_Symptoms.iloc[:,7]
+Maximum_HeartRate =Max_HeartRate.max()
+print('Thia is the max heart rate: ', Maximum_HeartRate)
 # NUMBER OF EXCERSICE INDUCED ANGIA 
+Angina = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Angia'] == 1]
+print(Angina)
+
+Not_Angina = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Angia'] == 0]
+print(Not_Angina)
+
+print('///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////')
+print('///////////////////////////////////////////////////  Patients Without Heart Disease  //////////////////////////////////////////////')
+print('///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////')
+
+#Printing the full table of attributes but only for those who dont have heart disease 
+No_Heart_Disease_Symptoms = df[df['Absence/Presence'] == 2]
+print(No_Heart_Disease_Symptoms)
+
