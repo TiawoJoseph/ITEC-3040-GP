@@ -231,3 +231,10 @@ print(Angina1)
 Not_Angina1 = No_Heart_Disease_Symptoms[No_Heart_Disease_Symptoms['Angia'] == 0]
 print('Patients without Induced Angina')
 print(Not_Angina1)
+
+Correlation1=Heart_Disease_Symptoms.corr()
+print(Correlation1)
+Correlation2=No_Heart_Disease_Symptoms.corr()
+print(Correlation2)
+Correlation3=df.corr()
+print(Correlation3)
