@@ -1,9 +1,10 @@
 import pandas as pd
 import numpy as np
-
-
+import matplotlib.pyplot as plt
+import seaborn as sns
 # We are going to need to compare everything that we are doing for patients with hear disease against the patients that don't have heart disease to see the difference.
-
+#Heat_Disease_Symptoms = Patients without heart disease (1)
+#No_Heart_Disease_Symptoms = Patients with heart disease (2)
 
 #Read the data in
 df = pd.read_csv('ITEC3040A2_DS.csv')
@@ -113,11 +114,49 @@ print('Thia is the min heart rate: ', Minimum_HR)
 Max_HeartRate = Heart_Disease_Symptoms.iloc[:,7]
 Maximum_HeartRate =Max_HeartRate.max()
 print('Thia is the max heart rate: ', Maximum_HeartRate)
+
+
+
+#Average, Max, Min cholesterol
+Cholesterol=Heart_Disease_Symptoms
+Age_CH = Cholesterol.iloc[:,4]
+Average_CH=Age_CH.mean()
+Max_CH =Age_CH.max()
+Min_CH = Age_CH.min()
+print('Avg, Max, Min Cholesterol  ', Average_CH, Max_CH, Min_CH)
+
+
+#Average, Ma... Resting ECG
+# ECG=Heart_Disease_Symptoms[Heart_Disease_Symptoms['Sex'] == 0]
+#  = ECG.iloc[:,5]
+# Average_CH=Age_CH.mean()
+# Max_CH =Age_CH.max()
+# Min_CH = Age_CH.min()
+# print('Avg, Max, Min Cholesterol  ', Average_CH, Max_CH, Min_CH)
+
+
+
+# #Average, Ma... Max Heart Rate
+# Cholesterol=Heart_Disease_Symptoms[Heart_Disease_Symptoms['Sex'] == 0]
+# Age_CH = Cholesterol.iloc[:,5]
+# Average_CH=Age_CH.mean()
+# Max_CH =Age_CH.max()
+# Min_CH = Age_CH.min()
+# print('Avg, Max, Min Cholesterol  ', Average_CH, Max_CH, Min_CH)
+
+
+# Thal=Heart_Disease_Symptoms[Heart_Disease_Symptoms['Sex'] == 0]
+# Age_CH = Cholesterol.iloc[:,5]
+# Average_CH=Age_CH.mean()
+# Max_CH =Age_CH.max()
+# Min_CH = Age_CH.min()
+# print('Avg, Max, Min Cholesterol  ', Average_CH, Max_CH, Min_CH)
+
 # NUMBER OF EXCERSICE INDUCED ANGIA 
-Angina = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Angia'] == 1]
+Angina = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Angina'] == 1]
 print(Angina)
 
-Not_Angina = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Angia'] == 0]
+Not_Angina = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Angina'] == 0]
 print(Not_Angina)
 
 print('///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////')
@@ -224,16 +263,62 @@ Max_HeartRate1 = No_Heart_Disease_Symptoms.iloc[:,7]
 Maximum_HeartRate1 =Max_HeartRate1.max()
 print('Thia is the max heart rate: ', Maximum_HeartRate1)
 # NUMBER OF EXCERSICE INDUCED ANGIA 
-Angina1 = No_Heart_Disease_Symptoms[No_Heart_Disease_Symptoms['Angia'] == 1]
+Angina1 = No_Heart_Disease_Symptoms[No_Heart_Disease_Symptoms['Angina'] == 1]
 print('Patients with Induced Angina')
 print(Angina1)
 
-Not_Angina1 = No_Heart_Disease_Symptoms[No_Heart_Disease_Symptoms['Angia'] == 0]
+Not_Angina1 = No_Heart_Disease_Symptoms[No_Heart_Disease_Symptoms['Angina'] == 0]
 print('Patients without Induced Angina')
 print(Not_Angina1)
 
+#Thal levels 
+Thal =No_Heart_Disease_Symptoms.iloc[:,12]
+print('heart disease patients with thal: ')
+print(Thal.shape[0])
+Thal1 = No_Heart_Disease_Symptoms[No_Heart_Disease_Symptoms['Thal'] == 3]
+print('Patients with Thal = 3 : ')
+print(Thal1.shape[0])
+
+Thal6 = No_Heart_Disease_Symptoms[No_Heart_Disease_Symptoms['Thal'] == 6]
+print('Patients with Thal = 6 : ')
+print(Thal6.shape[0])
+
+Thal7 = No_Heart_Disease_Symptoms[No_Heart_Disease_Symptoms['Thal'] == 7]
+print('Patients with Thal = 7 : ')
+print(Thal7.shape[0])
+
+#No heart disease patients 
+ThalN =Heart_Disease_Symptoms.iloc[:,12]
+print('non heart disease patients with thal: ')
+print(ThalN.shape[0])
+Thal1N = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Thal'] == 3]
+print('Patients with Thal = 3 : ')
+print(Thal1N.shape[0])
+
+Thal6N = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Thal'] == 6]
+print('Patients with Thal = 6 : ')
+print(Thal6N.shape[0])
+
+Thal7N = Heart_Disease_Symptoms[Heart_Disease_Symptoms['Thal'] == 7]
+print('Patients with Thal = 7 : ')
+print(Thal7N.shape[0])
+
+
 Correlation1=Heart_Disease_Symptoms.corr()
 print(Correlation1)
+
+correlation_with_target = df.corr()['Absence/Presence']
+sorted_correlations = correlation_with_target.abs().sort_values(ascending=False)
+plt.figure(figsize=(12, 6))
+sns.barplot(x=sorted_correlations.index, y=sorted_correlations.values, palette='coolwarm')
+plt.xticks(rotation=90)
+plt.ylabel('Correlation with Absence/Presence')
+plt.title('Correlation of Attributes with Absence/Presence of Heart Disease')
+plt.tight_layout()
+plt.show()
+
+
+
 Correlation2=No_Heart_Disease_Symptoms.corr()
 print(Correlation2)
 Correlation3=df.corr()

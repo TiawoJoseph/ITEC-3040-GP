@@ -1,4 +1,4 @@
-﻿Age,Sex,Chest Pain Type,Resting Blood Pressure,,Fasting BP,Resting ECG,Min Heart Rate,Angia,Oldpeak,ST Segment,Number of Major vessels,Thal,Absence/Presence
+﻿Age,Sex,Chest Pain Type,Resting Blood Pressure,Serum Cholesterol,Fasting BP,Resting ECG,Max Heart Rate,Angina,Oldpeak,ST Segment,Number of Major vessels,Thal,Absence/Presence
 70,1,4,130,322,0,2,109,0,2.4,2,3,3,2
 67,0,3,115,564,0,2,160,0,1.6,2,0,7,1
 57,1,2,124,261,0,0,141,0,0.3,1,0,7,2
